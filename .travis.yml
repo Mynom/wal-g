@@ -19,3 +19,4 @@ deploy:
   file: wal-g.linux-amd64$BINSUFFIX.tar.gz
   on:
     repo: Mynom/wal-g
+    tags: true
