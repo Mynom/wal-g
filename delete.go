@@ -147,16 +147,15 @@ func dropBackup(pre *Prefix, b BackupTime) {
 	keys := append(tarFiles, suffixKey, folderKey)
 	parts := partition(keys, 1000)
 	for _, part := range parts {
+        for _, key := range part {
+            input := &s3.DeleteObjectInput{Bucket: pre.Bucket, Key: &key}
+            _, err = pre.Svc.DeleteObject(input)
+            if err != nil {
+                log.Fatal("Unable to delete backup ", b.Name, err)
+		    }
 
-		input := &s3.DeleteObjectsInput{Bucket: pre.Bucket, Delete: &s3.Delete{
-			Objects: partitionToObjects(part),
-		}}
-		_, err = pre.Svc.DeleteObjects(input)
-		if err != nil {
-			log.Fatal("Unable to delete backup ", b.Name, err)
-		}
-
-	}
+	    }
+    }
 }
 
 func partitionToObjects(keys []string) []*s3.ObjectIdentifier {
@@ -177,16 +176,17 @@ func deleteWALBefore(bt BackupTime, pre *Prefix) {
 	if err != nil {
 		log.Fatal("Unable to obtaind WALS for border ", bt.Name, err)
 	}
-	parts := partitionObjects(objects, 1000)
+	parts := partitionObjects(objects, 100)
 	for _, part := range parts {
-		input := &s3.DeleteObjectsInput{Bucket: pre.Bucket, Delete: &s3.Delete{
-			Objects: part,
-		}}
-		_, err = pre.Svc.DeleteObjects(input)
-		if err != nil {
-			log.Fatal("Unable to delete WALS before ", bt.Name, err)
-		}
-	}
+         for _, key := range part {
+            input := &s3.DeleteObjectInput{Bucket: pre.Bucket, Key: key.Key}
+            _, err = pre.Svc.DeleteObject(input)
+            if err != nil {
+                log.Fatal("Unable to delete WALS before ", bt.Name, err)
+
+		    }
+        }
+    }
 }
 
 // DeleteUsage is a text message explaining how to use delete
