@@ -16,6 +16,7 @@ deploy:
   provider: releases
   api_key:
     secure: Cz55FfFV7IN3sq0TKmSh93S6xcJyc/cNcSReckLav1DhvPAVQVaIsPF8BI5OpDjEbRmshhF83A93Kh1mhV/UTnHqp/nIFCA95DvZWYVo3ktu3a9ei2qoMzyviY4VZ6YsJGmI6XtYpnG9/n+tIiI1BLsS9ldq24Qo2ISn49JQshPuSezA1nSEApCx8OSX3c1BVcANVPZcVfu2Wp+9LZ54DGEKLJpNGoqMar/CBrmRpXreuuJcTdmxXmLvQ4+vPpR8IN+4vxtmDXuk5SDL33UaSZR4UzvO9guKR0yHH8TM510fUcZ8x5laz763IHQnzScHZqoS99Y1ABTrfEDTpmp6csx9+IptQbI4eXuJqjbu+gA730C+w1z3OUit5nxxKnf5od7pSUpnz8kVzjU7JfUZnYna+1XbUcBm5jv2hUI8aYG3BzYp9GqsyT0xc2PyD5rcyBX/adELg4focZg6niv3nZ2GjLMAIohGvKTDZdADzlB8EnSL1URpac5voJtcfnSHa4TFOmfiBZ30nu+G+W8M+qlilqwzlKaAlIX0KMGtwBtaadDQSo5NHrgiYY/eYsX1Wfuqdd9ZZKyqcpFLQHLFV1x0X36b0iJ2JTMleJWcwQ82sL/XPvkQtDdiOjp8nKNSo4g9308+RyqSQQdc6zssI2PQtnL99WvwzNpM42GGlgk=
+  skip_cleanup: true
   file: wal-g.linux-amd64$BINSUFFIX.tar.gz
   on:
     repo: Mynom/wal-g
