@@ -10,10 +10,6 @@ go:
 matrix:
   include:
   - env: GOTAGS= BINSUFFIX=
-  - env: GOTAGS=lzo BINSUFFIX=.lzo
-    addons:
-      apt:
-        packages: liblzo2-dev
 before_deploy:
 - tar -zcf wal-g.linux-amd64$BINSUFFIX.tar.gz -C cmd/wal-g/ wal-g
 deploy:
