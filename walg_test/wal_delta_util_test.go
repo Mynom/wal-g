@@ -2,9 +2,9 @@ package walg_test
 
 import (
 	"github.com/stretchr/testify/assert"
-	"github.com/wal-g/wal-g"
-	"github.com/wal-g/wal-g/testtools"
-	"github.com/wal-g/wal-g/walparser"
+	"github.com/Mynom/wal-g"
+	"github.com/Mynom/wal-g/testtools"
+	"github.com/Mynom/wal-g/walparser"
 	"testing"
 )
 

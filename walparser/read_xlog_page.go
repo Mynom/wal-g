@@ -3,7 +3,7 @@ package walparser
 import (
 	"bytes"
 	"github.com/pkg/errors"
-	"github.com/wal-g/wal-g/walparser/parsingutil"
+	"github.com/Mynom/wal-g/walparser/parsingutil"
 	"io"
 )
 

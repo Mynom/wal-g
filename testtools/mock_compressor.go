@@ -1,7 +1,7 @@
 package testtools
 
 import (
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 	"io"
 )
 
