@@ -2,7 +2,7 @@ package walg_test
 
 import (
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 	"io/ioutil"
 	"os"
 	"path/filepath"

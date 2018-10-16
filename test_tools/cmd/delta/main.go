@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/jackc/pgx"
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 	"io"
 	"log"
 	"os"

@@ -4,7 +4,7 @@ import (
 	"archive/tar"
 	"testing"
 
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 	"os"
 	"time"
 )
