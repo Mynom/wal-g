@@ -2,7 +2,7 @@ package testtools
 
 import (
 	"bytes"
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 )
 
 // FileTarBallMaker creates a new FileTarBall

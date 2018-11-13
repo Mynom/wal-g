@@ -2,8 +2,8 @@ package walg
 
 import (
 	"github.com/pkg/errors"
-	"github.com/wal-g/wal-g/walparser"
-	"github.com/wal-g/wal-g/walparser/parsingutil"
+	"github.com/Mynom/wal-g/walparser"
+	"github.com/Mynom/wal-g/walparser/parsingutil"
 	"io"
 )
 

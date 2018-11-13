@@ -9,7 +9,7 @@ import (
 
 	"bytes"
 	"github.com/pierrec/lz4"
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 )
 
 // FileTarBall represents a tarball that is

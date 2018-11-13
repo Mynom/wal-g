@@ -1,7 +1,7 @@
 package walg
 
 import (
-	"github.com/wal-g/wal-g/walparser"
+	"github.com/Mynom/wal-g/walparser"
 	"sync"
 )
 

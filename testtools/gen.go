@@ -2,7 +2,7 @@ package testtools
 
 import (
 	"archive/tar"
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 	"io"
 	"math/rand"
 	"net/http"
