@@ -176,12 +176,12 @@ func dropBackup(folder *S3Folder, backupTime BackupTime) {
 	keys := append(tarFiles, sentinelKey, folderKey)
 	parts := partition(keys, 1000)
 	for _, part := range parts {
-               for _, key := range part {
-                       input := &s3.DeleteObjectInput{Bucket: folder.Bucket, Key: &key}
-                       _, err = folder.S3API.DeleteObject(input)
-                       if err != nil {
-                               log.Fatal("Unable to delete backup ", backupTime.Name, err)
-                       }
+		for _, key := range part {
+			input := &s3.DeleteObjectInput{Bucket: folder.Bucket, Key: &key}
+			_, err = folder.S3API.DeleteObject(input)
+			if err != nil {
+				log.Fatal("Unable to delete backup ", backupTime.Name, err)
+			}
 		}
 	}
 }
@@ -203,12 +203,12 @@ func deleteWALBefore(walSkipFileName string, folder *S3Folder) {
 	}
 	parts := partitionObjects(objects, 1000)
 	for _, part := range parts {
-               for _, key := range part {
-                       input := &s3.DeleteObjectInput{Bucket: folder.Bucket, Key: &key}
-                       _, err = folder.S3API.DeleteObject(input)
-                       if err != nil {
-                               log.Fatal("Unable to delete WALS before ", walSkipFileName, err)
-                       }
+		for _, key := range part {
+			input := &s3.DeleteObjectInput{Bucket: folder.Bucket, Key: key.Key}
+			_, err = folder.S3API.DeleteObject(input)
+			if err != nil {
+				log.Fatal("Unable to delete WALS before ", walSkipFileName, err)
+			}
 		}
 	}
 }
