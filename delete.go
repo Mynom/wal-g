@@ -169,7 +169,7 @@ func dropBackup(pre *S3Prefix, b BackupTime) {
 
         for _, key := range part {
             input := &s3.DeleteObjectInput{Bucket: pre.Bucket, Key: &key}
-            _, err = pre.S3API.DeleteObject(input)
+            _, err = pre.Svc.DeleteObject(input)
             if err != nil {
                 log.Fatal("Unable to delete backup ", b.Name, err)
 
@@ -201,7 +201,7 @@ func deleteWALBefore(walSkipFileName string, pre *S3Prefix) {
 	for _, part := range parts {
         for _, key := range part {
             input := &s3.DeleteObjectInput{Bucket: pre.Bucket, Key: key.Key}
-            _, err = pre.S3API.DeleteObject(input)
+            _, err = pre.Svc.DeleteObject(input)
             if err != nil {
                 log.Fatal("Unable to delete WALS before ", walSkipFileName, err)
             }
