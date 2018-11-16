@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wal-g/wal-g"
+	"github.com/Mynom/wal-g"
 )
 
 // Sets WAL-G needed environment variables to empty strings.

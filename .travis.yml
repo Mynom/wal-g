@@ -1,27 +1,23 @@
 notifications:
   email: false
 services:
-  - docker
-script: ./build.sh
+- docker
+script: "./build.sh"
 language: go
 dist: trusty
 go:
-  - 1.10.x
+- 1.10.x
 matrix:
   include:
-    - env: GOTAGS= BINSUFFIX=
-    - env: GOTAGS=lzo BINSUFFIX=.lzo
-      addons:
-        apt:
-          packages: liblzo2-dev
+  - env: GOTAGS= BINSUFFIX=
 before_deploy:
-  - tar -zcf wal-g.linux-amd64$BINSUFFIX.tar.gz -C cmd/wal-g/ wal-g
+- tar -zcf wal-g.linux-amd64$BINSUFFIX.tar.gz -C cmd/wal-g/ wal-g
 deploy:
   provider: releases
   api_key:
-    secure: nRVV5uKaBdCi/J/sLP7+c/shuDEaSeMiapEsro5gp4gr8n/QMgGm5AHNZhkfQVBmhmaKNB7dDzg34RVD2qacVpeZQTTUWetorBiwWvSjf+mlVcmBPKOIivamqetIdMEPgGQ0vudDADMpYiiqWBV893vAg1w0x02Cz7yvduzKEDyVttH+P4A7MPZ9tPtwLyMoOKjxe7Z0IOp82DK0rj+2KXQYe+El9Ipya+2WB88NBuRn2dJSfsAx9VI+5VmUz0waB1lP3ityjgQpaL13QEV6qsCXl+ntb4vGACbPYoPt0pgesq/zkL2ScFKTbzSSo6yByf3zHhV+elZ2sXnK/UYrqe4erC3qkG5qiTuy+uzPKg0pOVdqI1kDtMNoIanCjSVblXXsR+vz0UVHbzOmTMm7ckpnMB1nxsSyaQfs1C2e42SCgIB57RJsWUSsRx/Uq9iJS32ab/8pSnzJ2dZLNo4BxNHJDgKpmfj6ZKhBne+JUcfBsx2DOXs1ad9s0+ahpnlLiijhQQ5ZxGTfzYcXjijtAOyN2Y42wU6YI3L7ezsZTw+AoJeBMdc2MM8yy1CI/PM0x5IL+e9cZ+LoL87f0WZFxMd0KYblEeQzL+yRv0M5cRf4GPgqgEFsYUU4WXAH6Fnah2dailOvkfV1ygbaTxjvrSiIDnk0DKls3y8QLwSJPLw=
+    secure: Cz55FfFV7IN3sq0TKmSh93S6xcJyc/cNcSReckLav1DhvPAVQVaIsPF8BI5OpDjEbRmshhF83A93Kh1mhV/UTnHqp/nIFCA95DvZWYVo3ktu3a9ei2qoMzyviY4VZ6YsJGmI6XtYpnG9/n+tIiI1BLsS9ldq24Qo2ISn49JQshPuSezA1nSEApCx8OSX3c1BVcANVPZcVfu2Wp+9LZ54DGEKLJpNGoqMar/CBrmRpXreuuJcTdmxXmLvQ4+vPpR8IN+4vxtmDXuk5SDL33UaSZR4UzvO9guKR0yHH8TM510fUcZ8x5laz763IHQnzScHZqoS99Y1ABTrfEDTpmp6csx9+IptQbI4eXuJqjbu+gA730C+w1z3OUit5nxxKnf5od7pSUpnz8kVzjU7JfUZnYna+1XbUcBm5jv2hUI8aYG3BzYp9GqsyT0xc2PyD5rcyBX/adELg4focZg6niv3nZ2GjLMAIohGvKTDZdADzlB8EnSL1URpac5voJtcfnSHa4TFOmfiBZ30nu+G+W8M+qlilqwzlKaAlIX0KMGtwBtaadDQSo5NHrgiYY/eYsX1Wfuqdd9ZZKyqcpFLQHLFV1x0X36b0iJ2JTMleJWcwQ82sL/XPvkQtDdiOjp8nKNSo4g9308+RyqSQQdc6zssI2PQtnL99WvwzNpM42GGlgk=
   skip_cleanup: true
   file: wal-g.linux-amd64$BINSUFFIX.tar.gz
   on:
-    repo: wal-g/wal-g
+    repo: Mynom/wal-g
     tags: true
